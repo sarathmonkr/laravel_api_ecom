@@ -26,5 +26,8 @@ use App\Http\Controllers\ApiController;
 //     'message' => 'hai'
 //     ]);
 // });
-Route::get("list/{id?}",[ApiController::class,'getdata']);
-Route::post("add",[ApiController::class,'adddata']);
+Route::get("list/{id?}", [ApiController::class, 'getdata']);      //get table data
+Route::get("addcart/{id}", [ApiController::class, 'addcart']);    //add item to cart
+Route::get("remcart/{id}", [ApiController::class, 'remcart']);    //remove item from cart
+Route::get("delete/{id}", [ApiController::class, 'delete']);      //delete item from db
+Route::post("add", [ApiController::class, 'adddata']);            //insert data to db
