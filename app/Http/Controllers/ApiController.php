@@ -22,16 +22,12 @@ class ApiController extends Controller
     {
         $data = items_model::findOrFail($id); //primary id
         $count = $data->status;
-        if ($count > 0) {
-            $data->status = $count + 1;
-            $result = $data->save();
-            if ($result) {
-                return ['status' => 200, 'message' => '1 Item added to cart'];
-            } else {
-                return ['error' => 'Error Occured'];
-            }
+        $data->status = $count + 1;
+        $result = $data->save();
+        if ($result) {
+            return ['status' => 200, 'message' => '1 Item added to cart'];
         } else {
-            return ['status' => 200, 'message' => 'Invalid call'];
+            return ['error' => 'Error Occured'];
         }
     }
 
