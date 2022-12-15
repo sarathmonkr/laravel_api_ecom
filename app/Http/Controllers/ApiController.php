@@ -79,4 +79,23 @@ class ApiController extends Controller
             return ['error' => 'Error Occured'];
         }
     }
+
+    function updatedata(Request $req){
+        // return [$req ];
+        $data = items_model::findOrFail($req->id);
+        $data->name = $req->name;
+        $data->descr = $req->descr;
+        $data->price = $req->price;
+        if ($req->hasFile('img')) {
+            $path = $req->file('img')->store('public');
+            $fileinfo = $req->file('img');
+            $data->img = $path;
+        }
+        $result = $data->save();
+        if ($result) {
+            return ['status' => 200, 'message' => 'success'];
+        } else {
+            return ['error' => 'Error Occured'];
+        }
+    }
 }

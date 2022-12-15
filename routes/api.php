@@ -31,3 +31,4 @@ Route::get("addcart/{id}", [ApiController::class, 'addcart']);    //add item to 
 Route::get("remcart/{id}", [ApiController::class, 'remcart']);    //remove item from cart
 Route::get("delete/{id}", [ApiController::class, 'delete']);      //delete item from db
 Route::post("add", [ApiController::class, 'adddata']);            //insert data to db
+Route::post("update", [ApiController::class, 'updatedata']);      //update data to db
